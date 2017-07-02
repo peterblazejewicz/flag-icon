@@ -1,0 +1,36 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="flag-icon">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]!</h2>
+  </template>
+
+  <script>
+    /**
+     * `flag-icon`
+     * The FlagIcon is W3C *compliant* custom element
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class FlagIcon extends Polymer.Element {
+      static get is() { return 'flag-icon'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'flag-icon'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(FlagIcon.is, FlagIcon);
+  </script>
+</dom-module>
