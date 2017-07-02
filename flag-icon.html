@@ -1,36 +1,2069 @@
-<link rel="import" href="../polymer/polymer-element.html">
+<template>
+  <style>
+    :host {
+      /* we display a single char */
+      display: inline-block;
+    }
+  </style>
+  <i title=""></i>
+</template>
+<script>
+  /**
+  * `flag-icon`
+  * The FlagIcon is W3C *compliant* custom element
+  *
+  * @customElement
+  * @demo demo/index.html
+  */
+  class FlagIcon extends HTMLElement {
+    static get is() { return 'flag-icon'; }
+    static get observedAttributes() { return ["country"]; }
+    static get template(){
+      return document.currentScript.ownerDocument
+        .querySelector("template").content
+        .cloneNode(true);
+    }
 
-<dom-module id="flag-icon">
-  <template>
-    <style>
-      :host {
-        display: block;
-      }
-    </style>
-    <h2>Hello [[prop1]]!</h2>
-  </template>
+    static get emojis() {
+      return [
+        {
+          "code": "ad",
+          "codePoints": [
+            "0x1F1E6",
+            "0x1F1E9"
+          ],
+          "name": "Andorra"
+        },
+        {
+          "code": "ae",
+          "codePoints": [
+            "0x1F1E6",
+            "0x1F1EA"
+          ],
+          "name": "United Arab Emirates"
+        },
+        {
+          "code": "af",
+          "codePoints": [
+            "0x1F1E6",
+            "0x1F1EB"
+          ],
+          "name": "Afghanistan"
+        },
+        {
+          "code": "ag",
+          "codePoints": [
+            "0x1F1E6",
+            "0x1F1EC"
+          ],
+          "name": "Antigua and Barbuda"
+        },
+        {
+          "code": "ai",
+          "codePoints": [
+            "0x1F1E6",
+            "0x1F1EE"
+          ],
+          "name": "Anguilla"
+        },
+        {
+          "code": "al",
+          "codePoints": [
+            "0x1F1E6",
+            "0x1F1F1"
+          ],
+          "name": "Albania"
+        },
+        {
+          "code": "am",
+          "codePoints": [
+            "0x1F1E6",
+            "0x1F1F2"
+          ],
+          "name": "Armenia"
+        },
+        {
+          "code": "ao",
+          "codePoints": [
+            "0x1F1E6",
+            "0x1F1F4"
+          ],
+          "name": "Angola"
+        },
+        {
+          "code": "aq",
+          "codePoints": [
+            "0x1F1E6",
+            "0x1F1F6"
+          ],
+          "name": "Antarctica"
+        },
+        {
+          "code": "ar",
+          "codePoints": [
+            "0x1F1E6",
+            "0x1F1F7"
+          ],
+          "name": "Argentina"
+        },
+        {
+          "code": "as",
+          "codePoints": [
+            "0x1F1E6",
+            "0x1F1F8"
+          ],
+          "name": "American Samoa"
+        },
+        {
+          "code": "at",
+          "codePoints": [
+            "0x1F1E6",
+            "0x1F1F9"
+          ],
+          "name": "Austria"
+        },
+        {
+          "code": "au",
+          "codePoints": [
+            "0x1F1E6",
+            "0x1F1FA"
+          ],
+          "name": "Australia"
+        },
+        {
+          "code": "aw",
+          "codePoints": [
+            "0x1F1E6",
+            "0x1F1FC"
+          ],
+          "name": "Aruba"
+        },
+        {
+          "code": "ax",
+          "codePoints": [
+            "0x1F1E6",
+            "0x1F1FD"
+          ],
+          "name": "Åland Islands"
+        },
+        {
+          "code": "az",
+          "codePoints": [
+            "0x1F1E6",
+            "0x1F1FF"
+          ],
+          "name": "Azerbaijan"
+        },
+        {
+          "code": "ba",
+          "codePoints": [
+            "0x1F1E7",
+            "0x1F1E6"
+          ],
+          "name": "Bosnia and Herzegovina"
+        },
+        {
+          "code": "bb",
+          "codePoints": [
+            "0x1F1E7",
+            "0x1F1E7"
+          ],
+          "name": "Barbados"
+        },
+        {
+          "code": "bd",
+          "codePoints": [
+            "0x1F1E7",
+            "0x1F1E9"
+          ],
+          "name": "Bangladesh"
+        },
+        {
+          "code": "be",
+          "codePoints": [
+            "0x1F1E7",
+            "0x1F1EA"
+          ],
+          "name": "Belgium"
+        },
+        {
+          "code": "bf",
+          "codePoints": [
+            "0x1F1E7",
+            "0x1F1EB"
+          ],
+          "name": "Burkina Faso"
+        },
+        {
+          "code": "bg",
+          "codePoints": [
+            "0x1F1E7",
+            "0x1F1EC"
+          ],
+          "name": "Bulgaria"
+        },
+        {
+          "code": "bh",
+          "codePoints": [
+            "0x1F1E7",
+            "0x1F1ED"
+          ],
+          "name": "Bahrain"
+        },
+        {
+          "code": "bi",
+          "codePoints": [
+            "0x1F1E7",
+            "0x1F1EE"
+          ],
+          "name": "Burundi"
+        },
+        {
+          "code": "bj",
+          "codePoints": [
+            "0x1F1E7",
+            "0x1F1EF"
+          ],
+          "name": "Benin"
+        },
+        {
+          "code": "bl",
+          "codePoints": [
+            "0x1F1E7",
+            "0x1F1F1"
+          ],
+          "name": "Saint Barthélemy"
+        },
+        {
+          "code": "bm",
+          "codePoints": [
+            "0x1F1E7",
+            "0x1F1F2"
+          ],
+          "name": "Bermuda"
+        },
+        {
+          "code": "bn",
+          "codePoints": [
+            "0x1F1E7",
+            "0x1F1F3"
+          ],
+          "name": "Brunei Darussalam"
+        },
+        {
+          "code": "bo",
+          "codePoints": [
+            "0x1F1E7",
+            "0x1F1F4"
+          ],
+          "name": "Bolivia"
+        },
+        {
+          "code": "bq",
+          "codePoints": [
+            "0x1F1E7",
+            "0x1F1F6"
+          ],
+          "name": "Bonaire, Sint Eustatius and Saba"
+        },
+        {
+          "code": "br",
+          "codePoints": [
+            "0x1F1E7",
+            "0x1F1F7"
+          ],
+          "name": "Brazil"
+        },
+        {
+          "code": "bs",
+          "codePoints": [
+            "0x1F1E7",
+            "0x1F1F8"
+          ],
+          "name": "Bahamas"
+        },
+        {
+          "code": "bt",
+          "codePoints": [
+            "0x1F1E7",
+            "0x1F1F9"
+          ],
+          "name": "Bhutan"
+        },
+        {
+          "code": "bv",
+          "codePoints": [
+            "0x1F1E7",
+            "0x1F1FB"
+          ],
+          "name": "Bouvet Island"
+        },
+        {
+          "code": "bw",
+          "codePoints": [
+            "0x1F1E7",
+            "0x1F1FC"
+          ],
+          "name": "Botswana"
+        },
+        {
+          "code": "by",
+          "codePoints": [
+            "0x1F1E7",
+            "0x1F1FE"
+          ],
+          "name": "Belarus"
+        },
+        {
+          "code": "bz",
+          "codePoints": [
+            "0x1F1E7",
+            "0x1F1FF"
+          ],
+          "name": "Belize"
+        },
+        {
+          "code": "ca",
+          "codePoints": [
+            "0x1F1E8",
+            "0x1F1E6"
+          ],
+          "name": "Canada"
+        },
+        {
+          "code": "cc",
+          "codePoints": [
+            "0x1F1E8",
+            "0x1F1E8"
+          ],
+          "name": "Cocos (Keeling) Islands"
+        },
+        {
+          "code": "cd",
+          "codePoints": [
+            "0x1F1E8",
+            "0x1F1E9"
+          ],
+          "name": "Congo"
+        },
+        {
+          "code": "cf",
+          "codePoints": [
+            "0x1F1E8",
+            "0x1F1EB"
+          ],
+          "name": "Central African Republic"
+        },
+        {
+          "code": "cg",
+          "codePoints": [
+            "0x1F1E8",
+            "0x1F1EC"
+          ],
+          "name": "Congo"
+        },
+        {
+          "code": "ch",
+          "codePoints": [
+            "0x1F1E8",
+            "0x1F1ED"
+          ],
+          "name": "Switzerland"
+        },
+        {
+          "code": "ci",
+          "codePoints": [
+            "0x1F1E8",
+            "0x1F1EE"
+          ],
+          "name": "Côte D'Ivoire"
+        },
+        {
+          "code": "ck",
+          "codePoints": [
+            "0x1F1E8",
+            "0x1F1F0"
+          ],
+          "name": "Cook Islands"
+        },
+        {
+          "code": "cl",
+          "codePoints": [
+            "0x1F1E8",
+            "0x1F1F1"
+          ],
+          "name": "Chile"
+        },
+        {
+          "code": "cm",
+          "codePoints": [
+            "0x1F1E8",
+            "0x1F1F2"
+          ],
+          "name": "Cameroon"
+        },
+        {
+          "code": "cn",
+          "codePoints": [
+            "0x1F1E8",
+            "0x1F1F3"
+          ],
+          "name": "China"
+        },
+        {
+          "code": "co",
+          "codePoints": [
+            "0x1F1E8",
+            "0x1F1F4"
+          ],
+          "name": "Colombia"
+        },
+        {
+          "code": "cr",
+          "codePoints": [
+            "0x1F1E8",
+            "0x1F1F7"
+          ],
+          "name": "Costa Rica"
+        },
+        {
+          "code": "cu",
+          "codePoints": [
+            "0x1F1E8",
+            "0x1F1FA"
+          ],
+          "name": "Cuba"
+        },
+        {
+          "code": "cv",
+          "codePoints": [
+            "0x1F1E8",
+            "0x1F1FB"
+          ],
+          "name": "Cape Verde"
+        },
+        {
+          "code": "cw",
+          "codePoints": [
+            "0x1F1E8",
+            "0x1F1FC"
+          ],
+          "name": "Curaçao"
+        },
+        {
+          "code": "cx",
+          "codePoints": [
+            "0x1F1E8",
+            "0x1F1FD"
+          ],
+          "name": "Christmas Island"
+        },
+        {
+          "code": "cy",
+          "codePoints": [
+            "0x1F1E8",
+            "0x1F1FE"
+          ],
+          "name": "Cyprus"
+        },
+        {
+          "code": "cz",
+          "codePoints": [
+            "0x1F1E8",
+            "0x1F1FF"
+          ],
+          "name": "Czech Republic"
+        },
+        {
+          "code": "de",
+          "codePoints": [
+            "0x1F1E9",
+            "0x1F1EA"
+          ],
+          "name": "Germany"
+        },
+        {
+          "code": "dj",
+          "codePoints": [
+            "0x1F1E9",
+            "0x1F1EF"
+          ],
+          "name": "Djibouti"
+        },
+        {
+          "code": "dk",
+          "codePoints": [
+            "0x1F1E9",
+            "0x1F1F0"
+          ],
+          "name": "Denmark"
+        },
+        {
+          "code": "dm",
+          "codePoints": [
+            "0x1F1E9",
+            "0x1F1F2"
+          ],
+          "name": "Dominica"
+        },
+        {
+          "code": "do",
+          "codePoints": [
+            "0x1F1E9",
+            "0x1F1F4"
+          ],
+          "name": "Dominican Republic"
+        },
+        {
+          "code": "dz",
+          "codePoints": [
+            "0x1F1E9",
+            "0x1F1FF"
+          ],
+          "name": "Algeria"
+        },
+        {
+          "code": "ec",
+          "codePoints": [
+            "0x1F1EA",
+            "0x1F1E8"
+          ],
+          "name": "Ecuador"
+        },
+        {
+          "code": "ee",
+          "codePoints": [
+            "0x1F1EA",
+            "0x1F1EA"
+          ],
+          "name": "Estonia"
+        },
+        {
+          "code": "eg",
+          "codePoints": [
+            "0x1F1EA",
+            "0x1F1EC"
+          ],
+          "name": "Egypt"
+        },
+        {
+          "code": "eh",
+          "codePoints": [
+            "0x1F1EA",
+            "0x1F1ED"
+          ],
+          "name": "Western Sahara"
+        },
+        {
+          "code": "er",
+          "codePoints": [
+            "0x1F1EA",
+            "0x1F1F7"
+          ],
+          "name": "Eritrea"
+        },
+        {
+          "code": "es",
+          "codePoints": [
+            "0x1F1EA",
+            "0x1F1F8"
+          ],
+          "name": "Spain"
+        },
+        {
+          "code": "et",
+          "codePoints": [
+            "0x1F1EA",
+            "0x1F1F9"
+          ],
+          "name": "Ethiopia"
+        },
+        {
+          "code": "fi",
+          "codePoints": [
+            "0x1F1EB",
+            "0x1F1EE"
+          ],
+          "name": "Finland"
+        },
+        {
+          "code": "fj",
+          "codePoints": [
+            "0x1F1EB",
+            "0x1F1EF"
+          ],
+          "name": "Fiji"
+        },
+        {
+          "code": "fk",
+          "codePoints": [
+            "0x1F1EB",
+            "0x1F1F0"
+          ],
+          "name": "Falkland Islands (Malvinas)"
+        },
+        {
+          "code": "fm",
+          "codePoints": [
+            "0x1F1EB",
+            "0x1F1F2"
+          ],
+          "name": "Micronesia"
+        },
+        {
+          "code": "fo",
+          "codePoints": [
+            "0x1F1EB",
+            "0x1F1F4"
+          ],
+          "name": "Faroe Islands"
+        },
+        {
+          "code": "fr",
+          "codePoints": [
+            "0x1F1EB",
+            "0x1F1F7"
+          ],
+          "name": "France"
+        },
+        {
+          "code": "ga",
+          "codePoints": [
+            "0x1F1EC",
+            "0x1F1E6"
+          ],
+          "name": "Gabon"
+        },
+        {
+          "code": "gb",
+          "codePoints": [
+            "0x1F1EC",
+            "0x1F1E7"
+          ],
+          "name": "United Kingdom"
+        },
+        {
+          "code": "gd",
+          "codePoints": [
+            "0x1F1EC",
+            "0x1F1E9"
+          ],
+          "name": "Grenada"
+        },
+        {
+          "code": "ge",
+          "codePoints": [
+            "0x1F1EC",
+            "0x1F1EA"
+          ],
+          "name": "Georgia"
+        },
+        {
+          "code": "gf",
+          "codePoints": [
+            "0x1F1EC",
+            "0x1F1EB"
+          ],
+          "name": "French Guiana"
+        },
+        {
+          "code": "gg",
+          "codePoints": [
+            "0x1F1EC",
+            "0x1F1EC"
+          ],
+          "name": "Guernsey"
+        },
+        {
+          "code": "gh",
+          "codePoints": [
+            "0x1F1EC",
+            "0x1F1ED"
+          ],
+          "name": "Ghana"
+        },
+        {
+          "code": "gi",
+          "codePoints": [
+            "0x1F1EC",
+            "0x1F1EE"
+          ],
+          "name": "Gibraltar"
+        },
+        {
+          "code": "gl",
+          "codePoints": [
+            "0x1F1EC",
+            "0x1F1F1"
+          ],
+          "name": "Greenland"
+        },
+        {
+          "code": "gm",
+          "codePoints": [
+            "0x1F1EC",
+            "0x1F1F2"
+          ],
+          "name": "Gambia"
+        },
+        {
+          "code": "gn",
+          "codePoints": [
+            "0x1F1EC",
+            "0x1F1F3"
+          ],
+          "name": "Guinea"
+        },
+        {
+          "code": "gp",
+          "codePoints": [
+            "0x1F1EC",
+            "0x1F1F5"
+          ],
+          "name": "Guadeloupe"
+        },
+        {
+          "code": "gq",
+          "codePoints": [
+            "0x1F1EC",
+            "0x1F1F6"
+          ],
+          "name": "Equatorial Guinea"
+        },
+        {
+          "code": "gr",
+          "codePoints": [
+            "0x1F1EC",
+            "0x1F1F7"
+          ],
+          "name": "Greece"
+        },
+        {
+          "code": "gs",
+          "codePoints": [
+            "0x1F1EC",
+            "0x1F1F8"
+          ],
+          "name": "South Georgia"
+        },
+        {
+          "code": "gt",
+          "codePoints": [
+            "0x1F1EC",
+            "0x1F1F9"
+          ],
+          "name": "Guatemala"
+        },
+        {
+          "code": "gu",
+          "codePoints": [
+            "0x1F1EC",
+            "0x1F1FA"
+          ],
+          "name": "Guam"
+        },
+        {
+          "code": "gw",
+          "codePoints": [
+            "0x1F1EC",
+            "0x1F1FC"
+          ],
+          "name": "Guinea-Bissau"
+        },
+        {
+          "code": "gy",
+          "codePoints": [
+            "0x1F1EC",
+            "0x1F1FE"
+          ],
+          "name": "Guyana"
+        },
+        {
+          "code": "hk",
+          "codePoints": [
+            "0x1F1ED",
+            "0x1F1F0"
+          ],
+          "name": "Hong Kong"
+        },
+        {
+          "code": "hm",
+          "codePoints": [
+            "0x1F1ED",
+            "0x1F1F2"
+          ],
+          "name": "Heard Island and Mcdonald Islands"
+        },
+        {
+          "code": "hn",
+          "codePoints": [
+            "0x1F1ED",
+            "0x1F1F3"
+          ],
+          "name": "Honduras"
+        },
+        {
+          "code": "hr",
+          "codePoints": [
+            "0x1F1ED",
+            "0x1F1F7"
+          ],
+          "name": "Croatia"
+        },
+        {
+          "code": "ht",
+          "codePoints": [
+            "0x1F1ED",
+            "0x1F1F9"
+          ],
+          "name": "Haiti"
+        },
+        {
+          "code": "hu",
+          "codePoints": [
+            "0x1F1ED",
+            "0x1F1FA"
+          ],
+          "name": "Hungary"
+        },
+        {
+          "code": "id",
+          "codePoints": [
+            "0x1F1EE",
+            "0x1F1E9"
+          ],
+          "name": "Indonesia"
+        },
+        {
+          "code": "ie",
+          "codePoints": [
+            "0x1F1EE",
+            "0x1F1EA"
+          ],
+          "name": "Ireland"
+        },
+        {
+          "code": "il",
+          "codePoints": [
+            "0x1F1EE",
+            "0x1F1F1"
+          ],
+          "name": "Israel"
+        },
+        {
+          "code": "im",
+          "codePoints": [
+            "0x1F1EE",
+            "0x1F1F2"
+          ],
+          "name": "Isle of Man"
+        },
+        {
+          "code": "in",
+          "codePoints": [
+            "0x1F1EE",
+            "0x1F1F3"
+          ],
+          "name": "India"
+        },
+        {
+          "code": "io",
+          "codePoints": [
+            "0x1F1EE",
+            "0x1F1F4"
+          ],
+          "name": "British Indian Ocean Territory"
+        },
+        {
+          "code": "iq",
+          "codePoints": [
+            "0x1F1EE",
+            "0x1F1F6"
+          ],
+          "name": "Iraq"
+        },
+        {
+          "code": "ir",
+          "codePoints": [
+            "0x1F1EE",
+            "0x1F1F7"
+          ],
+          "name": "Iran"
+        },
+        {
+          "code": "is",
+          "codePoints": [
+            "0x1F1EE",
+            "0x1F1F8"
+          ],
+          "name": "Iceland"
+        },
+        {
+          "code": "it",
+          "codePoints": [
+            "0x1F1EE",
+            "0x1F1F9"
+          ],
+          "name": "Italy"
+        },
+        {
+          "code": "je",
+          "codePoints": [
+            "0x1F1EF",
+            "0x1F1EA"
+          ],
+          "name": "Jersey"
+        },
+        {
+          "code": "jm",
+          "codePoints": [
+            "0x1F1EF",
+            "0x1F1F2"
+          ],
+          "name": "Jamaica"
+        },
+        {
+          "code": "jo",
+          "codePoints": [
+            "0x1F1EF",
+            "0x1F1F4"
+          ],
+          "name": "Jordan"
+        },
+        {
+          "code": "jp",
+          "codePoints": [
+            "0x1F1EF",
+            "0x1F1F5"
+          ],
+          "name": "Japan"
+        },
+        {
+          "code": "ke",
+          "codePoints": [
+            "0x1F1F0",
+            "0x1F1EA"
+          ],
+          "name": "Kenya"
+        },
+        {
+          "code": "kg",
+          "codePoints": [
+            "0x1F1F0",
+            "0x1F1EC"
+          ],
+          "name": "Kyrgyzstan"
+        },
+        {
+          "code": "kh",
+          "codePoints": [
+            "0x1F1F0",
+            "0x1F1ED"
+          ],
+          "name": "Cambodia"
+        },
+        {
+          "code": "ki",
+          "codePoints": [
+            "0x1F1F0",
+            "0x1F1EE"
+          ],
+          "name": "Kiribati"
+        },
+        {
+          "code": "km",
+          "codePoints": [
+            "0x1F1F0",
+            "0x1F1F2"
+          ],
+          "name": "Comoros"
+        },
+        {
+          "code": "kn",
+          "codePoints": [
+            "0x1F1F0",
+            "0x1F1F3"
+          ],
+          "name": "Saint Kitts and Nevis"
+        },
+        {
+          "code": "kp",
+          "codePoints": [
+            "0x1F1F0",
+            "0x1F1F5"
+          ],
+          "name": "North Korea"
+        },
+        {
+          "code": "kr",
+          "codePoints": [
+            "0x1F1F0",
+            "0x1F1F7"
+          ],
+          "name": "South Korea"
+        },
+        {
+          "code": "kw",
+          "codePoints": [
+            "0x1F1F0",
+            "0x1F1FC"
+          ],
+          "name": "Kuwait"
+        },
+        {
+          "code": "ky",
+          "codePoints": [
+            "0x1F1F0",
+            "0x1F1FE"
+          ],
+          "name": "Cayman Islands"
+        },
+        {
+          "code": "kz",
+          "codePoints": [
+            "0x1F1F0",
+            "0x1F1FF"
+          ],
+          "name": "Kazakhstan"
+        },
+        {
+          "code": "la",
+          "codePoints": [
+            "0x1F1F1",
+            "0x1F1E6"
+          ],
+          "name": "Lao People's Democratic Republic"
+        },
+        {
+          "code": "lb",
+          "codePoints": [
+            "0x1F1F1",
+            "0x1F1E7"
+          ],
+          "name": "Lebanon"
+        },
+        {
+          "code": "lc",
+          "codePoints": [
+            "0x1F1F1",
+            "0x1F1E8"
+          ],
+          "name": "Saint Lucia"
+        },
+        {
+          "code": "li",
+          "codePoints": [
+            "0x1F1F1",
+            "0x1F1EE"
+          ],
+          "name": "Liechtenstein"
+        },
+        {
+          "code": "lk",
+          "codePoints": [
+            "0x1F1F1",
+            "0x1F1F0"
+          ],
+          "name": "Sri Lanka"
+        },
+        {
+          "code": "lr",
+          "codePoints": [
+            "0x1F1F1",
+            "0x1F1F7"
+          ],
+          "name": "Liberia"
+        },
+        {
+          "code": "ls",
+          "codePoints": [
+            "0x1F1F1",
+            "0x1F1F8"
+          ],
+          "name": "Lesotho"
+        },
+        {
+          "code": "lt",
+          "codePoints": [
+            "0x1F1F1",
+            "0x1F1F9"
+          ],
+          "name": "Lithuania"
+        },
+        {
+          "code": "lu",
+          "codePoints": [
+            "0x1F1F1",
+            "0x1F1FA"
+          ],
+          "name": "Luxembourg"
+        },
+        {
+          "code": "lv",
+          "codePoints": [
+            "0x1F1F1",
+            "0x1F1FB"
+          ],
+          "name": "Latvia"
+        },
+        {
+          "code": "ly",
+          "codePoints": [
+            "0x1F1F1",
+            "0x1F1FE"
+          ],
+          "name": "Libya"
+        },
+        {
+          "code": "ma",
+          "codePoints": [
+            "0x1F1F2",
+            "0x1F1E6"
+          ],
+          "name": "Morocco"
+        },
+        {
+          "code": "mc",
+          "codePoints": [
+            "0x1F1F2",
+            "0x1F1E8"
+          ],
+          "name": "Monaco"
+        },
+        {
+          "code": "md",
+          "codePoints": [
+            "0x1F1F2",
+            "0x1F1E9"
+          ],
+          "name": "Moldova"
+        },
+        {
+          "code": "me",
+          "codePoints": [
+            "0x1F1F2",
+            "0x1F1EA"
+          ],
+          "name": "Montenegro"
+        },
+        {
+          "code": "mf",
+          "codePoints": [
+            "0x1F1F2",
+            "0x1F1EB"
+          ],
+          "name": "Saint Martin (French Part)"
+        },
+        {
+          "code": "mg",
+          "codePoints": [
+            "0x1F1F2",
+            "0x1F1EC"
+          ],
+          "name": "Madagascar"
+        },
+        {
+          "code": "mh",
+          "codePoints": [
+            "0x1F1F2",
+            "0x1F1ED"
+          ],
+          "name": "Marshall Islands"
+        },
+        {
+          "code": "mk",
+          "codePoints": [
+            "0x1F1F2",
+            "0x1F1F0"
+          ],
+          "name": "Macedonia"
+        },
+        {
+          "code": "ml",
+          "codePoints": [
+            "0x1F1F2",
+            "0x1F1F1"
+          ],
+          "name": "Mali"
+        },
+        {
+          "code": "mm",
+          "codePoints": [
+            "0x1F1F2",
+            "0x1F1F2"
+          ],
+          "name": "Myanmar"
+        },
+        {
+          "code": "mn",
+          "codePoints": [
+            "0x1F1F2",
+            "0x1F1F3"
+          ],
+          "name": "Mongolia"
+        },
+        {
+          "code": "mo",
+          "codePoints": [
+            "0x1F1F2",
+            "0x1F1F4"
+          ],
+          "name": "Macao"
+        },
+        {
+          "code": "mp",
+          "codePoints": [
+            "0x1F1F2",
+            "0x1F1F5"
+          ],
+          "name": "Northern Mariana Islands"
+        },
+        {
+          "code": "mq",
+          "codePoints": [
+            "0x1F1F2",
+            "0x1F1F6"
+          ],
+          "name": "Martinique"
+        },
+        {
+          "code": "mr",
+          "codePoints": [
+            "0x1F1F2",
+            "0x1F1F7"
+          ],
+          "name": "Mauritania"
+        },
+        {
+          "code": "ms",
+          "codePoints": [
+            "0x1F1F2",
+            "0x1F1F8"
+          ],
+          "name": "Montserrat"
+        },
+        {
+          "code": "mt",
+          "codePoints": [
+            "0x1F1F2",
+            "0x1F1F9"
+          ],
+          "name": "Malta"
+        },
+        {
+          "code": "mu",
+          "codePoints": [
+            "0x1F1F2",
+            "0x1F1FA"
+          ],
+          "name": "Mauritius"
+        },
+        {
+          "code": "mv",
+          "codePoints": [
+            "0x1F1F2",
+            "0x1F1FB"
+          ],
+          "name": "Maldives"
+        },
+        {
+          "code": "mw",
+          "codePoints": [
+            "0x1F1F2",
+            "0x1F1FC"
+          ],
+          "name": "Malawi"
+        },
+        {
+          "code": "mx",
+          "codePoints": [
+            "0x1F1F2",
+            "0x1F1FD"
+          ],
+          "name": "Mexico"
+        },
+        {
+          "code": "my",
+          "codePoints": [
+            "0x1F1F2",
+            "0x1F1FE"
+          ],
+          "name": "Malaysia"
+        },
+        {
+          "code": "mz",
+          "codePoints": [
+            "0x1F1F2",
+            "0x1F1FF"
+          ],
+          "name": "Mozambique"
+        },
+        {
+          "code": "na",
+          "codePoints": [
+            "0x1F1F3",
+            "0x1F1E6"
+          ],
+          "name": "Namibia"
+        },
+        {
+          "code": "nc",
+          "codePoints": [
+            "0x1F1F3",
+            "0x1F1E8"
+          ],
+          "name": "New Caledonia"
+        },
+        {
+          "code": "ne",
+          "codePoints": [
+            "0x1F1F3",
+            "0x1F1EA"
+          ],
+          "name": "Niger"
+        },
+        {
+          "code": "nf",
+          "codePoints": [
+            "0x1F1F3",
+            "0x1F1EB"
+          ],
+          "name": "Norfolk Island"
+        },
+        {
+          "code": "ng",
+          "codePoints": [
+            "0x1F1F3",
+            "0x1F1EC"
+          ],
+          "name": "Nigeria"
+        },
+        {
+          "code": "ni",
+          "codePoints": [
+            "0x1F1F3",
+            "0x1F1EE"
+          ],
+          "name": "Nicaragua"
+        },
+        {
+          "code": "nl",
+          "codePoints": [
+            "0x1F1F3",
+            "0x1F1F1"
+          ],
+          "name": "Netherlands"
+        },
+        {
+          "code": "no",
+          "codePoints": [
+            "0x1F1F3",
+            "0x1F1F4"
+          ],
+          "name": "Norway"
+        },
+        {
+          "code": "np",
+          "codePoints": [
+            "0x1F1F3",
+            "0x1F1F5"
+          ],
+          "name": "Nepal"
+        },
+        {
+          "code": "nr",
+          "codePoints": [
+            "0x1F1F3",
+            "0x1F1F7"
+          ],
+          "name": "Nauru"
+        },
+        {
+          "code": "nu",
+          "codePoints": [
+            "0x1F1F3",
+            "0x1F1FA"
+          ],
+          "name": "Niue"
+        },
+        {
+          "code": "nz",
+          "codePoints": [
+            "0x1F1F3",
+            "0x1F1FF"
+          ],
+          "name": "New Zealand"
+        },
+        {
+          "code": "om",
+          "codePoints": [
+            "0x1F1F4",
+            "0x1F1F2"
+          ],
+          "name": "Oman"
+        },
+        {
+          "code": "pa",
+          "codePoints": [
+            "0x1F1F5",
+            "0x1F1E6"
+          ],
+          "name": "Panama"
+        },
+        {
+          "code": "pe",
+          "codePoints": [
+            "0x1F1F5",
+            "0x1F1EA"
+          ],
+          "name": "Peru"
+        },
+        {
+          "code": "pf",
+          "codePoints": [
+            "0x1F1F5",
+            "0x1F1EB"
+          ],
+          "name": "French Polynesia"
+        },
+        {
+          "code": "pg",
+          "codePoints": [
+            "0x1F1F5",
+            "0x1F1EC"
+          ],
+          "name": "Papua New Guinea"
+        },
+        {
+          "code": "ph",
+          "codePoints": [
+            "0x1F1F5",
+            "0x1F1ED"
+          ],
+          "name": "Philippines"
+        },
+        {
+          "code": "pk",
+          "codePoints": [
+            "0x1F1F5",
+            "0x1F1F0"
+          ],
+          "name": "Pakistan"
+        },
+        {
+          "code": "pl",
+          "codePoints": [
+            "0x1F1F5",
+            "0x1F1F1"
+          ],
+          "name": "Poland"
+        },
+        {
+          "code": "pm",
+          "codePoints": [
+            "0x1F1F5",
+            "0x1F1F2"
+          ],
+          "name": "Saint Pierre and Miquelon"
+        },
+        {
+          "code": "pn",
+          "codePoints": [
+            "0x1F1F5",
+            "0x1F1F3"
+          ],
+          "name": "Pitcairn"
+        },
+        {
+          "code": "pr",
+          "codePoints": [
+            "0x1F1F5",
+            "0x1F1F7"
+          ],
+          "name": "Puerto Rico"
+        },
+        {
+          "code": "ps",
+          "codePoints": [
+            "0x1F1F5",
+            "0x1F1F8"
+          ],
+          "name": "Palestinian Territory"
+        },
+        {
+          "code": "pt",
+          "codePoints": [
+            "0x1F1F5",
+            "0x1F1F9"
+          ],
+          "name": "Portugal"
+        },
+        {
+          "code": "pw",
+          "codePoints": [
+            "0x1F1F5",
+            "0x1F1FC"
+          ],
+          "name": "Palau"
+        },
+        {
+          "code": "py",
+          "codePoints": [
+            "0x1F1F5",
+            "0x1F1FE"
+          ],
+          "name": "Paraguay"
+        },
+        {
+          "code": "qa",
+          "codePoints": [
+            "0x1F1F6",
+            "0x1F1E6"
+          ],
+          "name": "Qatar"
+        },
+        {
+          "code": "re",
+          "codePoints": [
+            "0x1F1F7",
+            "0x1F1EA"
+          ],
+          "name": "Réunion"
+        },
+        {
+          "code": "ro",
+          "codePoints": [
+            "0x1F1F7",
+            "0x1F1F4"
+          ],
+          "name": "Romania"
+        },
+        {
+          "code": "rs",
+          "codePoints": [
+            "0x1F1F7",
+            "0x1F1F8"
+          ],
+          "name": "Serbia"
+        },
+        {
+          "code": "ru",
+          "codePoints": [
+            "0x1F1F7",
+            "0x1F1FA"
+          ],
+          "name": "Russia"
+        },
+        {
+          "code": "rw",
+          "codePoints": [
+            "0x1F1F7",
+            "0x1F1FC"
+          ],
+          "name": "Rwanda"
+        },
+        {
+          "code": "sa",
+          "codePoints": [
+            "0x1F1F8",
+            "0x1F1E6"
+          ],
+          "name": "Saudi Arabia"
+        },
+        {
+          "code": "sb",
+          "codePoints": [
+            "0x1F1F8",
+            "0x1F1E7"
+          ],
+          "name": "Solomon Islands"
+        },
+        {
+          "code": "sc",
+          "codePoints": [
+            "0x1F1F8",
+            "0x1F1E8"
+          ],
+          "name": "Seychelles"
+        },
+        {
+          "code": "sd",
+          "codePoints": [
+            "0x1F1F8",
+            "0x1F1E9"
+          ],
+          "name": "Sudan"
+        },
+        {
+          "code": "se",
+          "codePoints": [
+            "0x1F1F8",
+            "0x1F1EA"
+          ],
+          "name": "Sweden"
+        },
+        {
+          "code": "sg",
+          "codePoints": [
+            "0x1F1F8",
+            "0x1F1EC"
+          ],
+          "name": "Singapore"
+        },
+        {
+          "code": "sh",
+          "codePoints": [
+            "0x1F1F8",
+            "0x1F1ED"
+          ],
+          "name": "Saint Helena, Ascension and Tristan Da Cunha"
+        },
+        {
+          "code": "si",
+          "codePoints": [
+            "0x1F1F8",
+            "0x1F1EE"
+          ],
+          "name": "Slovenia"
+        },
+        {
+          "code": "sj",
+          "codePoints": [
+            "0x1F1F8",
+            "0x1F1EF"
+          ],
+          "name": "Svalbard and Jan Mayen"
+        },
+        {
+          "code": "sk",
+          "codePoints": [
+            "0x1F1F8",
+            "0x1F1F0"
+          ],
+          "name": "Slovakia"
+        },
+        {
+          "code": "sl",
+          "codePoints": [
+            "0x1F1F8",
+            "0x1F1F1"
+          ],
+          "name": "Sierra Leone"
+        },
+        {
+          "code": "sm",
+          "codePoints": [
+            "0x1F1F8",
+            "0x1F1F2"
+          ],
+          "name": "San Marino"
+        },
+        {
+          "code": "sn",
+          "codePoints": [
+            "0x1F1F8",
+            "0x1F1F3"
+          ],
+          "name": "Senegal"
+        },
+        {
+          "code": "so",
+          "codePoints": [
+            "0x1F1F8",
+            "0x1F1F4"
+          ],
+          "name": "Somalia"
+        },
+        {
+          "code": "sr",
+          "codePoints": [
+            "0x1F1F8",
+            "0x1F1F7"
+          ],
+          "name": "Suriname"
+        },
+        {
+          "code": "ss",
+          "codePoints": [
+            "0x1F1F8",
+            "0x1F1F8"
+          ],
+          "name": "South Sudan"
+        },
+        {
+          "code": "st",
+          "codePoints": [
+            "0x1F1F8",
+            "0x1F1F9"
+          ],
+          "name": "Sao Tome and Principe"
+        },
+        {
+          "code": "sv",
+          "codePoints": [
+            "0x1F1F8",
+            "0x1F1FB"
+          ],
+          "name": "El Salvador"
+        },
+        {
+          "code": "sx",
+          "codePoints": [
+            "0x1F1F8",
+            "0x1F1FD"
+          ],
+          "name": "Sint Maarten (Dutch Part)"
+        },
+        {
+          "code": "sy",
+          "codePoints": [
+            "0x1F1F8",
+            "0x1F1FE"
+          ],
+          "name": "Syrian Arab Republic"
+        },
+        {
+          "code": "sz",
+          "codePoints": [
+            "0x1F1F8",
+            "0x1F1FF"
+          ],
+          "name": "Swaziland"
+        },
+        {
+          "code": "tc",
+          "codePoints": [
+            "0x1F1F9",
+            "0x1F1E8"
+          ],
+          "name": "Turks and Caicos Islands"
+        },
+        {
+          "code": "td",
+          "codePoints": [
+            "0x1F1F9",
+            "0x1F1E9"
+          ],
+          "name": "Chad"
+        },
+        {
+          "code": "tf",
+          "codePoints": [
+            "0x1F1F9",
+            "0x1F1EB"
+          ],
+          "name": "French Southern Territories"
+        },
+        {
+          "code": "tg",
+          "codePoints": [
+            "0x1F1F9",
+            "0x1F1EC"
+          ],
+          "name": "Togo"
+        },
+        {
+          "code": "th",
+          "codePoints": [
+            "0x1F1F9",
+            "0x1F1ED"
+          ],
+          "name": "Thailand"
+        },
+        {
+          "code": "tj",
+          "codePoints": [
+            "0x1F1F9",
+            "0x1F1EF"
+          ],
+          "name": "Tajikistan"
+        },
+        {
+          "code": "tk",
+          "codePoints": [
+            "0x1F1F9",
+            "0x1F1F0"
+          ],
+          "name": "Tokelau"
+        },
+        {
+          "code": "tl",
+          "codePoints": [
+            "0x1F1F9",
+            "0x1F1F1"
+          ],
+          "name": "Timor-Leste"
+        },
+        {
+          "code": "tm",
+          "codePoints": [
+            "0x1F1F9",
+            "0x1F1F2"
+          ],
+          "name": "Turkmenistan"
+        },
+        {
+          "code": "tn",
+          "codePoints": [
+            "0x1F1F9",
+            "0x1F1F3"
+          ],
+          "name": "Tunisia"
+        },
+        {
+          "code": "to",
+          "codePoints": [
+            "0x1F1F9",
+            "0x1F1F4"
+          ],
+          "name": "Tonga"
+        },
+        {
+          "code": "tr",
+          "codePoints": [
+            "0x1F1F9",
+            "0x1F1F7"
+          ],
+          "name": "Turkey"
+        },
+        {
+          "code": "tt",
+          "codePoints": [
+            "0x1F1F9",
+            "0x1F1F9"
+          ],
+          "name": "Trinidad and Tobago"
+        },
+        {
+          "code": "tv",
+          "codePoints": [
+            "0x1F1F9",
+            "0x1F1FB"
+          ],
+          "name": "Tuvalu"
+        },
+        {
+          "code": "tw",
+          "codePoints": [
+            "0x1F1F9",
+            "0x1F1FC"
+          ],
+          "name": "Taiwan"
+        },
+        {
+          "code": "tz",
+          "codePoints": [
+            "0x1F1F9",
+            "0x1F1FF"
+          ],
+          "name": "Tanzania"
+        },
+        {
+          "code": "ua",
+          "codePoints": [
+            "0x1F1FA",
+            "0x1F1E6"
+          ],
+          "name": "Ukraine"
+        },
+        {
+          "code": "ug",
+          "codePoints": [
+            "0x1F1FA",
+            "0x1F1EC"
+          ],
+          "name": "Uganda"
+        },
+        {
+          "code": "um",
+          "codePoints": [
+            "0x1F1FA",
+            "0x1F1F2"
+          ],
+          "name": "United States Minor Outlying Islands"
+        },
+        {
+          "code": "us",
+          "codePoints": [
+            "0x1F1FA",
+            "0x1F1F8"
+          ],
+          "name": "United States"
+        },
+        {
+          "code": "uy",
+          "codePoints": [
+            "0x1F1FA",
+            "0x1F1FE"
+          ],
+          "name": "Uruguay"
+        },
+        {
+          "code": "uz",
+          "codePoints": [
+            "0x1F1FA",
+            "0x1F1FF"
+          ],
+          "name": "Uzbekistan"
+        },
+        {
+          "code": "va",
+          "codePoints": [
+            "0x1F1FB",
+            "0x1F1E6"
+          ],
+          "name": "Vatican City"
+        },
+        {
+          "code": "vc",
+          "codePoints": [
+            "0x1F1FB",
+            "0x1F1E8"
+          ],
+          "name": "Saint Vincent and The Grenadines"
+        },
+        {
+          "code": "ve",
+          "codePoints": [
+            "0x1F1FB",
+            "0x1F1EA"
+          ],
+          "name": "Venezuela"
+        },
+        {
+          "code": "vg",
+          "codePoints": [
+            "0x1F1FB",
+            "0x1F1EC"
+          ],
+          "name": "Virgin Islands, British"
+        },
+        {
+          "code": "vi",
+          "codePoints": [
+            "0x1F1FB",
+            "0x1F1EE"
+          ],
+          "name": "Virgin Islands, U.S."
+        },
+        {
+          "code": "vn",
+          "codePoints": [
+            "0x1F1FB",
+            "0x1F1F3"
+          ],
+          "name": "Viet Nam"
+        },
+        {
+          "code": "vu",
+          "codePoints": [
+            "0x1F1FB",
+            "0x1F1FA"
+          ],
+          "name": "Vanuatu"
+        },
+        {
+          "code": "wf",
+          "codePoints": [
+            "0x1F1FC",
+            "0x1F1EB"
+          ],
+          "name": "Wallis and Futuna"
+        },
+        {
+          "code": "ws",
+          "codePoints": [
+            "0x1F1FC",
+            "0x1F1F8"
+          ],
+          "name": "Samoa"
+        },
+        {
+          "code": "ye",
+          "codePoints": [
+            "0x1F1FE",
+            "0x1F1EA"
+          ],
+          "name": "Yemen"
+        },
+        {
+          "code": "yt",
+          "codePoints": [
+            "0x1F1FE",
+            "0x1F1F9"
+          ],
+          "name": "Mayotte"
+        },
+        {
+          "code": "za",
+          "codePoints": [
+            "0x1F1FF",
+            "0x1F1E6"
+          ],
+          "name": "South Africa"
+        },
+        {
+          "code": "zm",
+          "codePoints": [
+            "0x1F1FF",
+            "0x1F1F2"
+          ],
+          "name": "Zambia"
+        },
+        {
+          "code": "zw",
+          "codePoints": [
+            "0x1F1FF",
+            "0x1F1FC"
+          ],
+          "name": "Zimbabwe"
+        }
+      ]
+    }
 
-  <script>
-    /**
-     * `flag-icon`
-     * The FlagIcon is W3C *compliant* custom element
-     *
-     * @customElement
-     * @polymer
-     * @demo demo/index.html
-     */
-    class FlagIcon extends Polymer.Element {
-      static get is() { return 'flag-icon'; }
-      static get properties() {
-        return {
-          prop1: {
-            type: String,
-            value: 'flag-icon'
-          }
-        };
+    constructor(){
+      super();
+      this.attachShadow({ mode: "open" });
+      this.shadowRoot.appendChild(this.constructor.template);
+      this.icon = this.shadowRoot.querySelector("i");
+      this._countryCode = null
+    }
+
+    attributeChangedCallback(name, oldValue, newValue) {
+      this._countryCode = newValue;
+      this._updateRendering();
+    }
+
+    connectedCallback() {
+      this._updateRendering();
+    }
+
+    get country() {
+      return this._countryCode;
+    }
+    set country(value) {
+      this.setAttribute("country", value);
+    }
+
+    _updateRendering() {
+      if(this._countryCode) {
+        let emoji = this._emojiForCountryCode(this._countryCode);
+        if(emoji) {
+          this.icon.textContent = String.fromCodePoint(...emoji.codePoints);
+          this.icon.setAttribute("title", emoji.name);
+        }
       }
     }
 
-    window.customElements.define(FlagIcon.is, FlagIcon);
-  </script>
-</dom-module>
+    _emojiForCountryCode(country) {
+      if(!country) return null;
+      let matches = FlagIcon.emojis
+        .filter(emoji => emoji.code.toLowerCase() === country.toLowerCase());
+      return matches && matches[0];
+      return null;
+    }
+
+
+  }
+  window.customElements.define(FlagIcon.is, FlagIcon);
+</script>
