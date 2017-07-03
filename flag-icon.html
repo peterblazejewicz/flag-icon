@@ -8,6 +8,8 @@
   <i title=""></i>
 </template>
 <script>
+  let FlagIconTemplate = (document._currentScript || document.currentScript).ownerDocument
+        .querySelector("template").content;
   /**
   * `flag-icon`
   * The FlagIcon is W3C *compliant* custom element
@@ -19,11 +21,8 @@
     static get is() { return 'flag-icon'; }
     static get observedAttributes() { return ["country"]; }
     static get template(){
-      return document.currentScript.ownerDocument
-        .querySelector("template").content
-        .cloneNode(true);
+      return FlagIconTemplate.cloneNode(true);
     }
-
     static get emojis() {
       return [
         {
@@ -2062,7 +2061,6 @@
       return matches && matches[0];
       return null;
     }
-
 
   }
   window.customElements.define(FlagIcon.is, FlagIcon);
