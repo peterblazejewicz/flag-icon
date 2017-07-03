@@ -19,9 +19,15 @@
       </template>
     </test-fixture>
 
-    <test-fixture id="ChangedPropertyTestFixture">
+    <test-fixture id="japanFlagFixture">
       <template>
-        <flag-icon prop1="new-prop1"></flag-icon>
+        <flag-icon country="jp"></flag-icon>
+      </template>
+    </test-fixture>
+
+    <test-fixture id="polandFlagFixture">
+      <template>
+        <flag-icon country="pl"></flag-icon>
       </template>
     </test-fixture>
 
@@ -30,19 +36,28 @@
 
         test('instantiating the element with default properties works', function() {
           var element = fixture('BasicTestFixture');
-          assert.equal(element.prop1, 'flag-icon');
+          assert.equal(element.country, null);
           var elementShadowRoot = element.shadowRoot;
-          var elementHeader = elementShadowRoot.querySelector('h2');
-          assert.equal(elementHeader.innerHTML, 'Hello flag-icon!');
+          var iconElement = elementShadowRoot.querySelector('i');
+          assert.equal(iconElement.textContent, '');
         });
 
-        test('setting a property on the element works', function() {
-          // Create a test fixture
-          var element = fixture('ChangedPropertyTestFixture');
-          assert.equal(element.prop1, 'new-prop1');
+        test('setting a country property to jp works', function() {
+          var element = fixture('japanFlagFixture');
+          assert.equal(element.country, 'jp');
           var elementShadowRoot = element.shadowRoot;
-          var elementHeader = elementShadowRoot.querySelector('h2');
-          assert.equal(elementHeader.innerHTML, 'Hello new-prop1!');
+          var icon = elementShadowRoot.querySelector('i');
+          assert.equal(icon.textContent, '🇯🇵');
+          assert.equal(icon.getAttribute('title'), 'Japan');
+        });
+
+        test('setting a country property to the pl works', function() {
+          var element = fixture('polandFlagFixture');
+          assert.equal(element.country, 'pl');
+          var elementShadowRoot = element.shadowRoot;
+          var icon = elementShadowRoot.querySelector('i');
+          assert.equal(icon.textContent, '🇵🇱');
+          assert.equal(icon.getAttribute('title'), 'Poland');
         });
 
       });
