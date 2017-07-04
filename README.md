@@ -1,5 +1,6 @@
 # flag-icon
-The FlagIcon is an exercise mentioned in official W3C document :eyeglasses:
+
+> For the purposes of illustrating how to create an autonomous custom element, let's define a custom element that encapsulates rendering a small icon for a country flag. Our goal is to be able to use it like so
 
 ## Description
 
